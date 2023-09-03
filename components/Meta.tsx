@@ -14,7 +14,7 @@ const Meta: React.FC = () => {
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:site" content="@g_sp54" />
             <meta name="twitter:url" content="https://firebase-mini-sns.vercel.app/" />
-            <meta name="twitter:title" content="Goshi Tsuboi" />
+            <meta name="twitter:title" content="MINI SNS" />
             <meta name="twitter:description" content="ミニマムなSNSアプリケーションです" />
             <meta name="twitter:image" content="https://firebase-mini-sns.vercel.app/logo.png" />
         </>
