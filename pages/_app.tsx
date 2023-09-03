@@ -1,4 +1,5 @@
 import Layout from '@/components/Layout';
+import Meta from '@/components/Meta';
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { useState, useEffect } from 'react'
@@ -20,6 +21,8 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     // Layoutコンポーネントをラップし、isAuthステートを渡す
     <Layout isAuth={isAuth}>
+      <Meta />
+      <title>MINI SNS</title>
       {/* 現在のページコンポーネントをレンダリングし、isAuthとsetIsAuthをpropsとして渡す */}
       <Component {...pageProps} isAuth={isAuth} setIsAuth={setIsAuth} />
     </Layout>
