@@ -12,7 +12,7 @@ const Header: FC<HeaderProps> = ({ isAuth }) => {
             <div className="gap-4 flex">
                 <Link
                     href="/"
-                    className="flex items-center justify-center w-24 h-12 text-white bg-blue-300 rounded-md"
+                    className="flex items-center justify-center w-24 h-12 text-white bg-blue-500 rounded-md"
                 >
                     ホーム
                 </Link>
@@ -22,7 +22,7 @@ const Header: FC<HeaderProps> = ({ isAuth }) => {
                     // 未認証の場合はログインボタンを表示
                     <Link
                         href="/login"
-                        className="flex items-center justify-center w-24 h-12 text-white bg-blue-300 rounded-md"
+                        className="flex items-center justify-center w-24 h-12 text-white bg-blue-500 rounded-md"
                     >
                         ログイン
                     </Link>
@@ -31,7 +31,7 @@ const Header: FC<HeaderProps> = ({ isAuth }) => {
                     <>
                         <Link
                             href="/createpost"
-                            className="flex items-center justify-center w-24 h-12 text-white bg-blue-300 rounded-md"
+                            className="flex items-center justify-center w-24 h-12 text-white bg-blue-500 rounded-md"
                         >
                             投稿する
                         </Link>
