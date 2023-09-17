@@ -1,33 +1,31 @@
 import { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";  // orderByをインポート
 import { db } from "../utils/firebase";
 import { deleteDoc, doc } from "firebase/firestore";
 import { auth } from "../utils/firebase";
 
 // 投稿の型定義
 type Post = {
-  id: string;  // 追加
+  id: string;
   author: { id: string; username: string };
   postText: string;
   title: string;
+  createdAt: any;  // 追加
 };
 
 export default function Home() {
-  // ステートで投稿一覧を管理
   const [postList, setPostList] = useState<Post[]>([]);
 
-  // useEffectで投稿一覧を取得
   useEffect(() => {
     const getPosts = async () => {
-      // 投稿一覧を取得
-      const posts = await getDocs(collection(db, "posts"));
+      const q = query(collection(db, "posts"), orderBy("createdAt", "desc"));  // クエリを作成
+      const posts = await getDocs(q);  // クエリを使用してデータを取得
 
-      // 投稿一覧をステートに設定
       setPostList(
         posts.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
-        } as Post))  // as Post で型を明示
+        } as Post))
       );
     };
     getPosts();
@@ -44,13 +42,18 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center py-24">
       {postList.map((post) => (
         <div
-          className="mx-4 my-8 p-4 rounded-md shadow-md w-full max-w-md bg-white"
+          className="mx-4 my-8 p-4 rounded-md shadow-md w-11/12 md:max-w-screen-lg bg-white"
           key={post.id}
         >
-          <div className="mb-4">
+          <div className="md:flex justify-between items-center mb-4">
             <h1 className="font-bold text-xl mb-2">
               {post.title}
             </h1>
+            <span className="text-sm text-gray-500">
+              {/* 日付と時間(日本時間) */}
+              {new Date(post.createdAt).toLocaleString('ja-JP')}
+            </span>
+
           </div>
           <div className="postContainer mb-4">
             <p className="text-base">

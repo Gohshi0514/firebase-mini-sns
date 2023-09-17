@@ -17,7 +17,7 @@ const Login: FC<LoginProps> = ({ setIsAuth }) => {
   const loginWithGoogle = async () => {
     try {
       // FirebaseとGoogleプロバイダーを使用してログイン
-      await signInWithPopup(auth, provider).then((result) => {
+      await signInWithPopup(auth, provider).then(() => {
         // ローカルストレージに認証情報を保存
         localStorage.setItem("isAuth", "true");
 
