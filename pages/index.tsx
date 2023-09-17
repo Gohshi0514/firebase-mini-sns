@@ -39,7 +39,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center py-24">
+    <div className="flex flex-col items-center justify-center pt-12">
       {postList.map((post) => (
         <div
           className="mx-4 my-8 p-4 rounded-md shadow-md w-11/12 md:max-w-screen-lg bg-white"

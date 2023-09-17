@@ -12,7 +12,6 @@ const Layout: FC<LayoutProps> = ({ children, isAuth }) => {
         <>
             {/* Headerコンポーネントに認証状態を渡す */}
             <Header isAuth={isAuth} />
-
             {/* 子コンポーネントをレンダリング */}
             {children}
         </>
